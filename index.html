@@ -1,7 +1,45 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Interactive Page</title>
+    <!-- Include React -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- Include Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
   <body>
-    <h1>Hello World</h1>
-    <p>I'm hosted with GitHub Pages.</p>
+    <div id="root"></div>
+    <!-- Your JSX Code -->
+    <script type="text/babel">
+      const App = () => {
+        const [count, setCount] = React.useState(0);
+
+        const handleClick = () => {
+          setCount(count + 1);
+        };
+
+        return (
+          <div>
+            <h1>Hello World</h1>
+            <p>I'm hosted with GitHub Pages.</p>
+            <p>You clicked {count} times</p>
+            <button onClick={handleClick}>Click me</button>
+          </div>
+        );
+      };
+
+      // Render the App component into the DOM
+      const rootElement = document.getElementById("root");
+      const root = ReactDOM.createRoot(rootElement);
+      root.render(<App />);
+    </script>
   </body>
 </html>
